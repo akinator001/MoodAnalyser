@@ -13,14 +13,17 @@ public class MoodAnalyser {
 		this.msg = msg ;
 	}
 	
-	public String analyseMood() {
+	public String analyseMood() throws MoodException {
 		try{
+			if(msg.isEmpty()) {
+				throw new MoodException(MoodException.ExceptionType.ENTERED_EMPTY, "Empty message");
+			}
 			if(msg.contains("Happy")) 
 					return "HAPPY";
 			else 
 					return "SAD";
 		}catch(NullPointerException e) {
-			return "HAPPY";
+			throw new MoodException(MoodException.ExceptionType.ENTERED_NULL, "enter msg not null");
 		}
 	}
 	
