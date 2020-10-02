@@ -4,15 +4,24 @@
 package com.cp.mood;
 
 public class MoodAnalyser {
-    
-	public static void main(String []args) {
-		System.out.println("Welcome to mood analyser");
+    String msg;
+	MoodAnalyser(){
+		
 	}
-	public String analyseMood(String msg) {
+    
+	MoodAnalyser(String msg){
+		this.msg = msg ;
+	}
+	
+	public String analyseMood() {
 		if(msg.contains("Happy")) {
 			return "HAPPY";
 		}else {
 			return null;
 		}
+	}
+	
+	public static void main(String []args) {
+		System.out.println("Welcome to mood analyser");
 	}
 }
