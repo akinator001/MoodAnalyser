@@ -22,4 +22,35 @@ public class MoodAnalyserTest {
 		 }
 		
 	}
+	@Test
+	public void testMoodEmpty() {
+		MoodAnalyser mood = new MoodAnalyser("");
+		try {
+			mood.analyseMood();
+		}catch(MoodException e) {
+			Assert.assertEquals(MoodException.ExceptionType.ENTERED_EMPTY, e.type);
+		}
+	}
+	@Test
+	public void testMoodNull() {
+		MoodAnalyser mood = new MoodAnalyser(null);
+		try {
+			mood.analyseMood();
+		}catch(MoodException e) {
+			Assert.assertEquals(MoodException.ExceptionType.ENTERED_NULL, e.type);
+		}
+	}
+	
+	@Test
+	public void testMoodHappy() throws MoodException {
+		MoodAnalyser mood = new MoodAnalyser("this is Happy msg");
+		String str = mood.analyseMood();
+		Assert.assertEquals("HAPPY",str);
+	}
+	@Test
+	public void testMoodSad() throws MoodException {
+		MoodAnalyser mood = new MoodAnalyser("this is Sad msg");
+		String str = mood.analyseMood();
+		Assert.assertEquals("SAD",str);
+	}
 }
