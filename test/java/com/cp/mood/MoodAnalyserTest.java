@@ -9,6 +9,13 @@ import com.cp.mood.MoodAnalyser;
 
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
+
 public class MoodAnalyserTest {
-   
+	@Test
+	public void testMoodAnalysis() {
+		MoodAnalyser mood = new MoodAnalyser();
+		String str = mood.analyseMood("this is Sad msg");
+		Assert.assertEquals("SAD", str);
+	}
 }
