@@ -9,8 +9,8 @@ public class MoodAnalyser {
 		System.out.println("Welcome to mood analyser");
 	}
 	public String analyseMood(String msg) {
-		if(msg.contains("Sad")) {
-			return "SAD";
+		if(msg.contains("Happy")) {
+			return "HAPPY";
 		}else {
 			return null;
 		}
